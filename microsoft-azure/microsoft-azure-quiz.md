@@ -398,3 +398,28 @@
 - [x] `dcgpofix.exe`
 - [ ] `dcdiagfix.exe`
 - [ ] `ntdsutil.exe`
+
+#### Q53. Your JavaScript app hosted in Azure App Service needs to be able to make calls to a remote domain in another Azure region. Which App Service feature do you need to configure?
+
+- [x] `CORS`
+- [ ] `deployment slots`
+- [ ] `WebJobs`
+- [ ] `custom domains`
+
+As described in [Microsoft Docs: Hosting a Restful-API with CORS in AAS](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-rest-api): The Answer should be CORS (Cross Origin Ressource Sharing)
+
+#### Q54. Bindings in Azure Function triggers have a direction property that is always \_.
+
+- [ ] parallel
+- [ ] out
+- [ ] asynchronous
+- [x] in
+
+[Source: LinkedIn practice mode](https://i.imgur.com/tn3RrVW.png)
+
+#### Q55. You are selecting a cloud messaging solution for your multimedia news app. The app routes news items to the appropriate services for processing and delivery to subscribers. Requirements for the solution are as follows: Events should be routed to the appropriate service to process event; events must be routed to multiple services when necessary; and only relevant events should be routed to a service for processing. Which solution should you use?
+
+- [ ] Event Grid
+- [ ] Service Bus
+- [ ] Event Hub
+- [ ] Queue Storage

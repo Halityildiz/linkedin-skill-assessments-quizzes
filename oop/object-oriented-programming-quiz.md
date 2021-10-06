@@ -303,6 +303,9 @@ _NOTE_: Hybrid inheritance is a composition of multiple and hierarchical inherit
 - [ ] to delegate coding responsibility more efficiently
 - [ ] to conserve memory
 - [x] to avoid writing duplicate code
+- [x] to separate class behavior from the more general
+
+_NOTE_: I don't have 4th variant in my test, it changed to new 5th variant. Is it also true?
 
 #### Q40. In addition to attributes and behaviours, what quality must a class possess?
 
@@ -411,10 +414,10 @@ _NOTE_: Hybrid inheritance is a composition of multiple and hierarchical inherit
 
 #### Q55. What defines the catch block most accurately?
 
-- [x] The catch block that will be executed is the one that best matches the type of the exception thrown
-- [ ] Multiple catch blocks are not allowed with a single try.
-- [ ] Every catch block will run accordingly in a try.
-- [ ]
+- [x] The catch block that will be executed is the one that best matches the type of exception thrown.
+- [ ] Multiple catch blocks can never be associated with a single try block.
+- [ ] Multiple catch blocks are mandatory for each try block.
+- [ ] Multiple catch blocks will all be executed in the case of an exception.
 
 #### Q56. There are five classes. Class E is derived from class D, D from C, C from B, and B from A. Which class constructor(s) will be called first if the object of E or D is created?
 
@@ -434,7 +437,7 @@ _NOTE_: Hybrid inheritance is a composition of multiple and hierarchical inherit
 
 - [ ] A class of resources
 - [ ] A group of methods
-- [ ] A collection of objects
+- [x] A collection of objects
 - [ ] A list of children
 
 #### Q59. Which type of function can be used for polymorphism?
@@ -443,3 +446,24 @@ _NOTE_: Hybrid inheritance is a composition of multiple and hierarchical inherit
 - [ ] inline function
 - [ ] undefined function
 - [ ] private function
+
+#### Q60. Which choice is a benefit of using dependency injection?
+
+- [x] loose coupling
+- [ ] code reusability
+- [ ] lazy initialization
+- [ ] data abstraction
+
+#### Q61. Are you reauired to return an object if it was passed by reference to a function, and why or why not?
+
+- [ ] Yes, the caller function needs to reflect the changes.
+- [ ] No, you should use a global variable instead.
+- [ ] No, changes will be automatically reflected in the calling function.
+- [ ] Yes, the object must be the same in the caller function.
+
+#### Q62. Why is inheritance ?
+
+- [ ] Yes, the caller function needs to reflect the changes.
+- [ ] No, you should use a global variable instead.
+- [ ] No, changes will be automatically reflected in the calling function.
+- [ ] Yes, the object must be the same in the caller function.

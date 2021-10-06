@@ -34,8 +34,10 @@
 
 - [ ] Gamma color space
 - [ ] Depth of field
-- [ ] Foreshortening
+- [x] Foreshortening
 - [ ] Bloom
+
+https://docs.unity3d.com/2019.3/Documentation/Manual/CamerasOverview.html
 
 #### Q6. What is Cinemachine Virtual Camera used for?
 
@@ -54,7 +56,7 @@
 #### Q8. Cinemachine offers tools for building gameplay behaviours. Which component makes spline based paths for moving objects?
 
 - [ ] Cinemachine Target Group
-- [ ] Cinemachine Smooth Path
+- [x] Cinemachine Smooth Path
 - [ ] Cinemachine Free Look
 - [ ] Cinemachine Brain
 
@@ -63,7 +65,10 @@
 - [ ] Cubits
 - [ ] Feet
 - [ ] Inches
-- [ ] Meters
+- [x] Meters
+
+Unity's default units are in meters (Unreal Engine too). If you keep this in mind and model with your units alined to meters, the lighting system will work minimal artifacting.
+https://docs.unity3d.com/2019.3/Documentation/Manual/BestPracticeMakingBelievableVisuals1.html
 
 #### Q10. The Collaborate feature of Unity Teams empowers whom to do what?
 
@@ -76,7 +81,7 @@
 
 - [ ] How the camera renders UI objects on top of the scene
 - [ ] How the camera renders transparent objects by default
-- [ ] How the camera renders its background on each frame
+- [x] How the camera renders its background on each frame
 - [ ] How the camera occludes background objects
 
 #### Q12. What is the OnAnimatorMove event on MonoBehaviour objects commonly used for?
@@ -84,14 +89,14 @@
 - [ ] Detecting when an object moves
 - [ ] Updating a navigation agent in response to keyframe data
 - [ ] Replaying an animation when it has completed
-- [ ] Modifying the root motion of an animated object
+- [x] Modifying the root motion of an animated object
 
 #### Q13. Which MonoBehaviour method runs by default in Editor mode?
 
 - [ ] OnBecameInvisible
 - [ ] OnAnimatorMove
 - [ ] Reset
-- [ ] OnTriggerEnter
+- [x] OnTriggerEnter
 
 #### Q14. For the OnTriggerEnter function to invoke successfully on a collision between two objects, at least one must have which two components?
 
@@ -124,7 +129,7 @@
 #### Q18. The Project windows search box can filter the display of assets with text commands. Which command displays only texture assets?
 
 - [ ] T:mesh
-- [ ] T:texture
+- [x] T:texture
 - [ ] T:mesh
 - [ ] Show textures
 
@@ -156,6 +161,8 @@
 - [ ] Serializable
 - [x] SerializedField
 
+https://docs.unity3d.com/ScriptReference/SerializeField.html
+
 #### Q23. What is a technique for optimizing Unity UI elements?
 
 - [ ] Group static UI elements on one canvas, and dynamic elements on a separate canvas
@@ -172,6 +179,9 @@
 - [ ] It inserts 20 pixels of margin on all edges around the variable inside the Object Inspector
 - [ ] It inserts 20 pixels of empty space above the variable inside the Object Inspector
 - [x] It inserts 20 pixels of empty space below the variable inside the Object Inspector
+
+This is a great way to customize your inspector without writing a new inspector script for it.
+https://docs.unity3d.com/ScriptReference/SpaceAttribute.html
 
 #### Q25. Every time you double-click a C# script file from the Project window, Unity prints the message below (or something very similar) to the console. What is a reasonable step in trying to solve this? Cannot start process because a file name has not been provided
 
@@ -191,7 +201,7 @@
 
 - [ ] Sprites that are non animated
 - [ ] Sprites that appear together in game
-- [ ] Sprites using the same color palette
+- [x] Sprites using the same color palette
 - [ ] Sprites of the same dimensions
 
 #### Q28. You are making a game where you need to execute your own functions in response to critical animation events for a rigged character. Specifically, there are two events you must handle: when an animation state is entered and when it is exited in the Animator graph. Which class may be used to invoke your code when those two events happen?
@@ -206,7 +216,7 @@
 - [ ] Select Assets > import Package, and then import the Cross-Platform Input Asset Package
 - [ ] Select Windows > Asset Management > Version Control, and then enter an identifier in the Source field
 - [ ] Select File > Build Settings. Then from the Build dialog box, select Android or iOS, and select the Bundle Identifier from the Compression Method drop down menu.
-- [ ] Select Edit > Project Settings > Player from the menu, and then expand the Other Settings tab
+- [x] Select Edit > Project Settings > Player from the menu, and then expand the Other Settings tab
 
 #### Q30. Rigidbody components may be added to objects with colliders to make them affected by physical forces. What does the IsKinematic property achieve?
 
@@ -272,7 +282,11 @@
 - [ ] Virtual reality
 - [ ] Augmented reality
 - [ ] Motion capture
-- [ ] Photogrammetry
+- [x] Photogrammetry
+
+When you use photogrammetry to scan in models from the real world, and bring in those models into Unity (or any renderer), you will notice that the lighting information is baked into the texture. You can remove the baked in lighting information with various tools online, but even Unity themeless wrote a custom tool for just this; check it out!
+https://github.com/Unity-Technologies/DeLightingTool
+https://github.com/Unity-Technologies/DeLightingTool/blob/master/Assets/DeLightingTool/Documentation/De-LightingTool.pdf
 
 #### Q38. Humanoid character assets, like NPCs and the player character, feature on Avatar object. Which statement best describes its purpose?
 

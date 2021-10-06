@@ -5,9 +5,9 @@
 `echo 76 <=> '76 trombones';`
 
 - [ ] 1
-- [ ] -1
+- [x] -1
 - [ ] a parser error
-- [x] 0
+- [ ] 0
 
 ##### Q2. Which is the most secure way to avoid storing a password in clear text in database?
 
@@ -70,7 +70,7 @@ if ($email === false) {
 - [ ] GET is intended for changing the server state and it carries more data than POST.
 - [ ] GET is more secure than POST and should be used for sensitive information.
 
-##### Q8. The ** operator is useful for sorting operations. It compares two values and returns an integer less than, equal to, or greater than 0 depending on whether on whether the value on the ** is less than, equal to, or greater than the other.
+##### Q8. The ** operator is useful for sorting operations. It compares two values and returns an integer less than, equal to, or greater than 0 depending on whether the value on the ** is less than, equal to, or greater than the other.
 
 - [ ] greater-than; right
 - [x] spaceship; left
@@ -628,3 +628,28 @@ isset($_POST['submit'])
 - [ ] `__FUNCTION__`
 - [ ] `__CLASS__`
 - [ ] `__TRAIT__`
+
+##### Q57. What below script will print?
+
+```php
+  if( 1 == true){
+        echo "1";
+  }
+
+  if( 1 === true){
+      echo "2";
+  }
+
+  if("php" == true){
+      echo "3";
+  }
+
+  if("php" === false){
+      echo "4";
+  }
+```
+
+- [ ] 134
+- [x] 13
+- [ ] 1
+- [ ] 123

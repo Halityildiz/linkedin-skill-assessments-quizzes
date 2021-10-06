@@ -470,9 +470,7 @@ export class ToolsComponent {
 
 [Reference (angular.io)](https://angular.io/api/router/Router#navigate)
 
-#### Q33. When a service is provided for root and is also added to the provider's configuration for a lazy-loaded module, what instance of that service does the
-
-injector provide to constructors in the lazy-loaded module?
+#### Q33. When a service is provided for root and is also added to the provider's configuration for a lazy-loaded module, what instance of that service does the injector provide to constructors in the lazy-loaded module?
 
 - [ ] A new instance of that service is created when the module is lazy loaded.
 - [ ] Providing a service of the same type at a lazy-loaded module level is not allowed.
@@ -490,11 +488,13 @@ export class HighlightDirective {
 }
 ```
 
-- [ ] It is adding the CSS class named highlighted to any DOM element that has the appHighlight directive on it.
+- [x] It is adding the CSS class named highlighted to any DOM element that has the appHighlight directive on it.
 - [ ] HostBinding does not do anything on directives, only on components.
 - [ ] It is specifying if the host element gets the highlighted class added to its class attribute, then the directive class field highlight will get set to
       true; and if it is not added on the host it will get set to false.
 - [ ] It is creating an inline style on the host element with a CSS property named highlight set to true.
+
+[Reference (StackOverflow)](https://stackoverflow.com/a/46207423)
 
 #### Q35. In reactive forms, what Angular form class type is used on the native DOM <form> element to wire it up?
 
@@ -549,8 +549,10 @@ forms markup for the username field?
 
 - [ ] It renders the CSS exactly how you wrote it without any changes.
 - [ ] It makes use of shadow DOM markup and CSS.
-- [ ] It creates unique attributes for DOM elements and scopes the CSS selectors you write to those attribute ids.
+- [x] It creates unique attributes for DOM elements and scopes the CSS selectors you write to those attribute ids.
 - [ ] It renders all of the CSS rules you write as inline CSS on all of the DOM elements you use them on in the template.
+
+[Reference (Angular.io)](https://angular.io/guide/view-encapsulation#inspecting-generated-css)
 
 #### Q38. With the following TestBed setup, what can be used to access the rendered DOM for the UserCardComponent?
 
@@ -563,8 +565,12 @@ let fixture = TestBed.createComponent(UserCardComponent);
 
 - [ ] `fixture.componentTemplate`
 - [ ] `fixture.getComponentHtml()`
-- [ ] `fixture.nativeElement`
+- [x] `fixture.nativeElement`
 - [ ] `fixture.componentInstance.template `
+
+[Reference (StackOverflow)](https://stackoverflow.com/a/56504773)
+
+[Reference (Angular.io)](https://angular.io/guide/testing-components-basics#nativeelement)
 
 #### Q39. Given these two components, what will get rendered to the DOM based on the markup usage?
 
@@ -643,7 +649,7 @@ export class BioComponent { }
 <app-user-card></app-user-card>
 ```
 
-- [ ]
+- [x]
 
 ```javascript
 <app-user-card>
@@ -743,17 +749,202 @@ getSettings()
 ```javascript
 const spy = jasmine.createSpyObj('DataService', ['getUsersFromApi']);
 TestBed.configureTestingModule({
-  providers: [
-    UserService,
-    { provide: DataService, useValue: spy }
-  ]
+  providers: [UserService, { provide: DataService, useValue: spy }],
 });
 const userService = TestBed.get(UserService);
 ```
+
 - [ ] The TestBed is required anytime you want to make use of a spy object in a unit test for an Angular provider.
 - [ ] The TestBed is being used to test a component's view.
 - [ ] The TestBed scaffolds an NgModule with two providers and handles any dependeny injection. If any Angular class requests the DataService in its constructor, the TestBed will inject spy in that constructor.
 - [ ] The TestBed is configuring the test runner to tell it to only execute tests for the two providers listed in its providers array.
-All other tests be ignored, including tests that assert results against one of these providers and a non-defined provider.
-Although it will work when multiple providers in this configuration are asserted against in a single test.
+- `All other tests be ignored, including tests that assert results against one of these providers and a non-defined provider.`
+  `Although it will work when multiple providers in this configuration are asserted against in a single test.`
 
+#### Q45. What is the primary difference between a component and a directive?
+
+- [ ] A component uses a selector metadata property and a directive does not.
+- [ ] A directive can be used for adding custom events to the DOM and a component cannot.
+- [ ] A component has a template and a directive does not.
+- [ ] A directive can target only native DOM elements.
+
+#### Q46. What could you add to this directive class to allow the truncate length to be set during directive usage in markup?
+
+```
+@Directive({
+    selector: '[appTruncate]'
+})
+export class TruncateDirective {
+    . . .
+}
+
+// example of desired usage:
+<p [appTruncate]="10">Some very long text here</p>
+```
+
+- [ ] `@Input() appTruncate: number;`
+- [ ] `@Output() appTruncate;`
+- [ ] `constructor(maxLength: number) { }`
+- [ ] `Nothing. The directive selector cannot be used to pass in values to the directive.`
+
+#### Q47. How can you pass query parameters to this `HttpClient.get` request?
+
+```
+export class OrderService {
+    constructor(private httpClient: HttpClient) { }
+
+    getOrdersByYear(year: number): Observable<Order[]> {
+      return this.httpClient.get<Order[]>(this.ordersUrl);
+    }
+}
+```
+
+- [ ] `return this.httpClient.get<Order[]>(this.ordersUrl, {'year': year})`
+- [ ] `return this.httpClient.get<Order[]>(this.ordersUrl, year)`
+- [ ]
+
+```
+const options = {params: new HttpParams().set('year', year) };
+return this.httpClient.get<Order[]>(this.ordersUrl, options);
+```
+
+- [ ]
+
+```angularjs
+getOrdersByYear(year: number): Observable<Order[]> {
+    return this.httpClient.addParam('year', year).get<Order[]>(this.ordersUrl, year);
+}
+```
+
+#### Q48. Assuming the `DataService` has been registered in the providers for the application, which answer best describes what happens based on this component's constructor?
+
+```
+@Component({
+    ...
+})
+export class OrderHistoryComponent {
+    constructor(private dataService: DataService) {}
+    ...
+}
+```
+
+- [ ] It is declaring that the `OrderHistoryComponent` will have its own version of a `DataService` and that it should never use any existing instances. The `DataService` would need to be instantiated within the class as a private field for this code to be complete and working.
+- [ ] When Angular creates a new instance of the `OrderHistoryComponent`, the injector will provide an instance of a `DataService` class to the component constructor's first argument. The constructor's `dataService` parameter will be used to set a private instance field with the same name on the instance.
+- [ ] It provides a way to do component testing only; the constructor has no usage in the actual run of the Angular application.
+- [ ] It enables the custom element that the component targets to have a custom property named `dataService` that can be used to bind an existing `DataService` instance to.
+
+#### Q49. Finish this markup using the `ngIf` directive to implement an else case that will display the text "User is not active":
+
+```angular2html
+<div *ngIf="userIsActive; else inactive">
+  Currently active!
+</div>
+```
+
+- [ ]
+
+```angular2html
+<div #inactive>
+  User is not active.
+</div>
+```
+
+- [ ]
+
+```angular2html
+<div *ngIf="inactive">
+  User is not active.
+</div>
+```
+
+- [ ]
+
+```angular2html
+<ng-template #else="inactive">
+  <div>User is not active.</div>
+</ng-template>
+```
+
+- [ ]
+
+```angular2html
+<ng-template #inactive>
+  <div>User is not active.</div>
+</ng-template>
+```
+
+#### Q50. What is the correct syntax for a route definition to lazy load a feature module?
+
+- [ ]
+
+```
+{
+    path: 'users',
+    lazy: './users/users.module#UsersModule'
+}
+```
+
+- [ ]
+
+```
+{
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then(m => m.UserModule)
+}
+```
+
+- [ ]
+
+```
+{
+    path: 'users',
+    loadChildren: './users/users.module#UsersModule'
+}
+```
+
+- [ ]
+
+```
+{
+    path: 'users',
+    module: UsersModule
+}
+```
+
+#### Q51. Describe how the validation is set up and configured in this reactive forms example:
+
+```
+export class UserFormControl implements OnInit {
+    ...
+    ngOnInit() {
+        this.form = this.formBuilder.group({
+            username: this.formBuilder.control('',
+                [Validators.required, Validators.minLength(5), this.unique]),
+        )};
+    }
+    unique(control: FormControl) {
+        return control.value !== 'admin' ? null: {notUnique: true};
+    }
+}
+```
+
+- [ ] The `FormControl` for `username` is getting configured to exclude three validators from the validators that it is allowed to use.
+- [ ] The `FormControl` for `username` is getting configured to allow three possible validators to be used: `required, maxLength`, and a custom one named `unique`. To enable these `validators`, a validator directive would need to be put on the form fields in the markup.
+- [ ] Validation cannot be set up this way in reactive forms.
+- [ ] The `FormControl` for `username` is getting configured with three validators: the `required` and `minLength` validators that come from Angular, and a custom validator function named `unique` that checks for the value not equal to the string `admin`.
+
+#### Q52. What does the Injectable decorator do on this service class?
+
+```
+@Injectable({
+    providedIn: 'root'
+)}
+export class DataService { }
+```
+
+- [ ] It registers a provider for the service that is available only at the root module level, not to any children modules.
+- [x] It registers a provider for the service in the root application injector, making a single instance of it available throughout the application.
+- [ ] It makes it so the service can be injected only in the bootstrapped component for the application.
+- [ ] It sets up a compile time rule that allows you to put the service type only in the providers metadata property of the root NgModule.
+
+[Reference (Angular.io)](https://angular.io/guide/providers#providing-a-service)
